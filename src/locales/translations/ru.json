@@ -1,0 +1,17 @@
+{
+  "courses": {
+    "loading": "Загрузка курсов...",
+    "error": "Ошибка загрузки: {{error}}",
+    "retry": "Повторить",
+    "allTopics": "Все темы"
+  },
+  "courseCard": {
+    "duration": "{{duration}} мин",
+    "lessons": "{{count}} уроков",
+    "start": "Начать"
+  },
+  "tagSelector": {
+    "title": "Выбор темы",
+    "cancel": "Отмена"
+  }
+}

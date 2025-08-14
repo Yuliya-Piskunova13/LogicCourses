@@ -1,0 +1,17 @@
+{
+  "courses": {
+    "loading": "Loading courses...",
+    "error": "Loading error: {{error}}",
+    "retry": "Retry",
+    "allTopics": "All topics"
+  },
+  "courseCard": {
+    "duration": "{{duration}} min",
+    "lessons": "{{count}} lessons",
+    "start": "Start"
+  },
+  "tagSelector": {
+    "title": "Select topic",
+    "cancel": "Cancel"
+  }
+}

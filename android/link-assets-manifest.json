@@ -1,0 +1,17 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/Nunito-Bold.ttf",
+      "sha1": "dbcc199d19d61eca3474920f1b39ff84d3ef3574"
+    },
+    {
+      "path": "src/assets/fonts/Nunito-ExtraBold.ttf",
+      "sha1": "22f68b139d101a52fc8fa45311ee21631e0fbc21"
+    },
+    {
+      "path": "src/assets/fonts/Nunito-Regular.ttf",
+      "sha1": "87e3e6548e8b08587da4191ec729a6e3aee2ade8"
+    }
+  ]
+}
