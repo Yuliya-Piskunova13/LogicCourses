@@ -21,18 +21,20 @@ const SelectionScreen = () => {
 
   const keyExtractor = (item: string) => item;
 
+  const renderTagItem = ({ item }: { item: string }) => (
+    <TagItem
+      tag={item}
+      isSelected={selectedTag === item}
+      onPress={handleSelectTag}
+    />
+  );
+
   return (
     <SafeAreaView style={styles.container}>
       <SelectionHeader onClose={() => navigation.goBack()} />
       <FlatList
         data={availableTags}
-        renderItem={({ item }) => (
-          <TagItem
-            tag={item}
-            isSelected={selectedTag === item}
-            onPress={handleSelectTag}
-          />
-        )}
+        renderItem={renderTagItem}
         keyExtractor={keyExtractor}
         contentContainerStyle={styles.listContainer}
         showsVerticalScrollIndicator={false}

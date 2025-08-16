@@ -10,6 +10,7 @@ export const dimensions = {
   card: {
     width: width * 0.4,
     height: height * 0.6,
+    spacing: 20,
   },
   tag: {
     width: width * 0.5,

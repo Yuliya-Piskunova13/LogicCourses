@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
 import {
   View,
   TouchableOpacity,
@@ -17,11 +17,20 @@ import { ROUTES } from '../../constants/navigation';
 import { colors } from '../../theme/colors';
 import Text from '../../components/Text';
 import { COURSES_CONSTANTS } from '../../features/courses/contants/courses';
+import { dimensions } from '../../theme/dimensions';
 
 const HomeScreen = () => {
   const navigation = useAppNavigation();
   const { t } = useTranslation();
   const { courses, selectedTag, loading, error, refetch } = useCourses();
+
+  const flatListRef = useRef<FlatList<Course>>(null);
+
+  useEffect(() => {
+    if (flatListRef.current && courses.length > 0) {
+      flatListRef.current.scrollToOffset({ offset: 0, animated: true });
+    }
+  }, [courses.length, selectedTag]);
 
   const handleOpenTagSelector = () => {
     navigation.navigate(ROUTES.SELECTION);
@@ -32,6 +41,19 @@ const HomeScreen = () => {
   );
 
   const keyExtractor = (item: Course) => item.id;
+
+  // Оптимизация для горизонтального FlatList с точными размерами
+  const getItemLayout = useCallback((_: unknown, index: number) => {
+    const cardWidth = dimensions.card.width;
+    const cardSpacing = dimensions.card.spacing; // Используем константу вместо хардкода
+    const totalWidth = cardWidth + cardSpacing;
+
+    return {
+      length: totalWidth,
+      offset: totalWidth * index,
+      index,
+    };
+  }, []);
 
   if (loading) {
     return (
@@ -77,16 +99,17 @@ const HomeScreen = () => {
       </View>
 
       <FlatList
+        ref={flatListRef}
         data={courses}
         renderItem={renderCourse}
         keyExtractor={keyExtractor}
         horizontal
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.coursesList}
-        initialNumToRender={2}
-        maxToRenderPerBatch={3}
-        windowSize={3}
-        removeClippedSubviews
+        initialNumToRender={5}
+        maxToRenderPerBatch={5}
+        windowSize={5}
+        getItemLayout={getItemLayout}
       />
     </SafeAreaView>
   );
