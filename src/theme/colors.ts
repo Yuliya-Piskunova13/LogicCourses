@@ -9,6 +9,9 @@ export const colors = {
     light: '#81c784',
     dark: '#388e3c',
   },
+  card: {
+    primary: 'rgba(229, 232, 254, 1)',
+  },
   background: {
     primary: '#f8f9fa',
     secondary: '#ffffff',

@@ -27,7 +27,7 @@ export const styles = StyleSheet.create({
     marginHorizontal: 24,
   },
   wrapper: {
-    backgroundColor: 'rgba(229, 232, 254, 1)',
+    backgroundColor: colors.card.primary,
     borderRadius: 24,
     paddingBottom: 12,
     marginRight: 20,

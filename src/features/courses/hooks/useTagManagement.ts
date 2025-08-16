@@ -39,11 +39,14 @@ export const useTagManagement = () => {
     }
   }, []);
 
-  const handleAppStateChange = useCallback((nextAppState: AppStateStatus) => {
-    if (nextAppState === 'active') {
-      checkAppStateChanges();
-    }
-  }, [checkAppStateChanges]);
+  const handleAppStateChange = useCallback(
+    (nextAppState: AppStateStatus) => {
+      if (nextAppState === 'active') {
+        checkAppStateChanges();
+      }
+    },
+    [checkAppStateChanges]
+  );
 
   const handleTagChanged = useCallback((tag: string | null) => {
     if (tag) {
